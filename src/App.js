@@ -1,11 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import './wasm_exec.js';
 import Header from './header/Header';
 import ButtonAction from './buttonAction/buttonAction';
 import Loading from './loading/loading';
 import Footer from './footer/footer';
+import wasm from './mywebwalletgenerator.wasm';
 function App() {
   const [isProcessing, setProcessing] = useState(false);
+
+  useEffect(()=>{
+    function loadWasm(){
+        window.go = new window.Go();
+        WebAssembly.instantiateStreaming(fetch(wasm), window.go.importObject).then(async (result) => {
+            let module = result.module;
+            console.log("This code was written by @EternalBytes github.com/EternalBytes");
+
+            let instance = await WebAssembly.instantiate(module, window.go.importObject);
+            window.go.run(instance);
+        }).catch((err) => {
+            console.error(err);
+        });
+
+        //window.instance = await WebAssembly.instantiate(module, window.go.importObject);
+    }
+    loadWasm();
+  }, []);
+  
   return (
     <>
     <a href="https://github.com/EternalBytes/walletgenerator" target="_blank" rel="noreferrer" className="github-corner" aria-label="View source on Github">

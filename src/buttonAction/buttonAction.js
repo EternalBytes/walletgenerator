@@ -3,9 +3,16 @@ import './buttonAction.scss';
 
 export default function ButtonAction({ setLoading }){
     const [ isMainnet, setNetwork ] = useState(true);
-    const generatePdf = useCallback(async function(str){
-        return str;
-    }, []);
+
+    const generateWallet = useCallback(async function(){
+        try {
+            const walletData = await window.generateWallet((isMainnet ? "mainnet" : "testnet"));
+            return walletData;
+        } catch(e) {
+            console.log(e)
+        }
+    }, [isMainnet]);
+
     return (
         <div className="button-container">
             <div className="button-container--box">
@@ -13,15 +20,13 @@ export default function ButtonAction({ setLoading }){
                     <div className={ isMainnet ? "mainnet lightblue" : "mainnet darkblue" } onClick={ ()=> setNetwork(true) }>Mainnet</div>
                     <div className={ isMainnet ? "testnet darkblue" : "testnet lightblue" } onClick={ ()=> setNetwork(false) }>Testnet</div>
                 </dir>
-                <button type="button" onClick={ ()=> {
+                <button type="button" onClick={ async ()=> {
                     ////////////// JUST FOR TESTS AT THE MOMENT
                     setLoading(true);
-                    let e = setTimeout(async ()=>{
-                        let str = await generatePdf("The pdf wallet was generated now.");
-                        console.log(str + (isMainnet ? "Mainnet" : "Testnet"));
-                        setLoading(false);
-                        clearTimeout(e)
-                    }, 3000);
+                    let data = await generateWallet();
+                    
+                    console.log(data);
+                    setLoading(false);
                 } }>Generate your paper wallet</button>
             </div>
         </div>
