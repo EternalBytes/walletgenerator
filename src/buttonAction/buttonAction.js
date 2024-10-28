@@ -6,8 +6,7 @@ export default function ButtonAction({ setLoading }){
 
     const generateWallet = useCallback(async function(){
         try {
-            const walletData = await window.generateWallet((isMainnet ? "mainnet" : "testnet"));
-            return walletData;
+            return await window.generateWallet((isMainnet ? "mainnet" : "testnet"));
         } catch(e) {
             console.log(e)
         }
@@ -16,10 +15,10 @@ export default function ButtonAction({ setLoading }){
     return (
         <div className="button-container">
             <div className="button-container--box">
-                <dir className="button-container--box-network">
+                <div className="button-container--box-network">
                     <div className={ isMainnet ? "mainnet lightblue" : "mainnet darkblue" } onClick={ ()=> setNetwork(true) }>Mainnet</div>
                     <div className={ isMainnet ? "testnet darkblue" : "testnet lightblue" } onClick={ ()=> setNetwork(false) }>Testnet</div>
-                </dir>
+                </div>
                 <button type="button" onClick={ async ()=> {
                     ////////////// JUST FOR TESTS AT THE MOMENT
                     setLoading(true);

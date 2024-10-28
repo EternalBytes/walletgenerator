@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-"use strict";
-
 (() => {
 	const enosys = () => {
 		const err = new Error("not implemented");
@@ -18,6 +16,7 @@
 			writeSync(fd, buf) {
 				outputBuf += decoder.decode(buf);
 				const nl = outputBuf.lastIndexOf("\n");
+				// eslint-disable-next-line
 				if (nl != -1) {
 					console.log(outputBuf.substring(0, nl));
 					outputBuf = outputBuf.substring(nl + 1);
@@ -112,7 +111,7 @@
 				this.mem.setUint32(addr + 0, v, true);
 				this.mem.setUint32(addr + 4, Math.floor(v / 4294967296), true);
 			}
-
+			// eslint-disable-next-line
 			const setInt32 = (addr, v) => {
 				this.mem.setUint32(addr + 0, v, true);
 			}
@@ -166,6 +165,7 @@
 				}
 				this._goRefCounts[id]++;
 				let typeFlag = 0;
+				// eslint-disable-next-line
 				switch (typeof v) {
 					case "object":
 						if (v !== null) {
@@ -256,6 +256,7 @@
 					// func walltime() (sec int64, nsec int32)
 					"runtime.walltime": (sp) => {
 						sp >>>= 0;
+						// eslint-disable-next-line
 						const msec = (new Date).getTime();
 						setInt64(sp + 8, msec / 1000);
 						this.mem.setInt32(sp + 16, (msec % 1000) * 1000000, true);

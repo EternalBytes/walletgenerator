@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import './wasm_exec.js';
+import './wasm_exec';
 import wasm from './mywebwalletgenerator.wasm';
 import Header from './header/Header';
 import ButtonAction from './buttonAction/buttonAction';
