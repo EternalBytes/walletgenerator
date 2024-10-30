@@ -6,8 +6,10 @@ import Header from './header/Header';
 import ButtonAction from './buttonAction/buttonAction';
 import Loading from './loading/loading';
 import Footer from './footer/footer';
+import PopupPDF from './popupPdf/PopupPDF';
 function App() {
   const [isProcessing, setProcessing] = useState(false);
+  const [pdfData, setPdfData] = useState(null);
 
   useEffect(()=>{
     const go = new window.Go();
@@ -32,8 +34,9 @@ function App() {
     </a>
     <div>
       <Header />
-      <ButtonAction setLoading={setProcessing} />
+      <ButtonAction setLoading={setProcessing} setPdfData={setPdfData} />
       <Loading isLoading={isProcessing} />
+      <PopupPDF pdfData={pdfData} isLoading={isProcessing} />
       <Footer />
     </div>
     </>
