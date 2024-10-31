@@ -26,11 +26,11 @@ export default function ButtonAction({ setLoading, setPdfData }){
                     <div className={ isMainnet ? "testnet darkblue" : "testnet lightblue" } onClick={ ()=> setNetwork(false) }>Testnet</div>
                 </div>
                 <button type="button" onClick={ async ()=> {
-
                     setLoading(true);
                     let t = setTimeout(async ()=>{
                         let data = await generatePDF(JSON.parse(await generateWa(isMainnet)), generateQRC);
                         await getPDF(data, "paper-wallet");
+                        data = {};
                         setLoading(false);
                         clearTimeout(t);
                     }, 1500);
