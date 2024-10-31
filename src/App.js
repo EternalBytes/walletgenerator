@@ -15,7 +15,6 @@ function App() {
     const go = new window.Go();
         WebAssembly.instantiateStreaming(fetch(wasm), go.importObject).then(async (result) => {
             let module = result.module;
-            console.log("This code was written by @EternalBytes github.com/EternalBytes");
             let instance = await WebAssembly.instantiate(module, go.importObject);
             go.run(instance);
         }).catch((err) => {
@@ -36,7 +35,7 @@ function App() {
       <Header />
       <ButtonAction setLoading={setProcessing} setPdfData={setPdfData} />
       <Loading isLoading={isProcessing} />
-      <PopupPDF pdfData={pdfData} isLoading={isProcessing} />
+      <PopupPDF pdfData={pdfData} isLoading={isProcessing} setPdfData={setPdfData} />
       <Footer />
     </div>
     </>
