@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d31c863d.css",
+    "main.js": "/static/js/main.c26d909a.js",
+    "static/js/52.309dd927.chunk.js": "/static/js/52.309dd927.chunk.js",
+    "static/js/760.88cfb635.chunk.js": "/static/js/760.88cfb635.chunk.js",
+    "static/js/265.9bf1b386.chunk.js": "/static/js/265.9bf1b386.chunk.js",
+    "static/media/mywebwalletgenerator.wasm": "/static/media/mywebwalletgenerator.df6e30520f3cc0c7a306.wasm",
+    "static/media/xeclogo.webp": "/static/media/xeclogo.26cbc9176a50c480cd4c.webp",
+    "static/media/ecashlogo.png": "/static/media/ecashlogo.72bc477996754e55411c.png",
+    "static/media/loading.svg": "/static/media/loading.343d6eae80cc8d9ba90e982bfc490d78.svg",
+    "index.html": "/index.html",
+    "static/media/ecash-icon-blue.svg": "/static/media/ecash-icon-blue.89e1aa52f60b2eac333e.svg"
+  },
+  "entrypoints": [
+    "static/css/main.d31c863d.css",
+    "static/js/main.c26d909a.js"
+  ]
+}
