@@ -2,7 +2,6 @@ import React, { useState, useCallback } from "react";
 import './buttonAction.scss';
 import { generateWallet, mobileAndTabletCheck, generateQRCode, downloadPDF, generatePDF } from '../hooks/hooks';
 
-
 export default function ButtonAction({ setLoading, setPdfData }){
     const [ isMainnet, setNetwork ] = useState(true);
 
@@ -34,7 +33,6 @@ export default function ButtonAction({ setLoading, setPdfData }){
                         setLoading(false);
                         clearTimeout(t);
                     }, 1500);
-                    
                 } }>Generate your paper wallet</button>
             </div>
         </div>
