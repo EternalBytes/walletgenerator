@@ -1,5 +1,6 @@
 ## A free open-source wasm client-side eCash paper wallet generator.
-![](./src/header/xeclogo.webp)
+
+<img src="./src/header/xeclogo.webp" width="300" />
 
 > **Warning:** This web app is under development and has basic tested functionalites. There'll be new features in the future.
 
