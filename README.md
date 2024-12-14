@@ -1,4 +1,4 @@
-## A free open-source wasm client-side eCash paper wallet generator.
+## A free open-source wasm client-side eCash (XEC) paper wallet generator.
 
 <img src="./src/header/xeclogo.webp" width="300" />
 
